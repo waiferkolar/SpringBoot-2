@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org/">
+<head th:replace="master :: head"></head>
+<body>
+
+<div class="container my-5">
+    <div class="col-md-6 offset-md-3">
+
+        <h1 class="text-info text-center mb-3">Create Pages For Book</h1>
+        <form method="post" th:object="${page}">
+            <div class="form-group">
+                <label for="number">Number</label>
+                <input class="form-control rounded-0" id="number" name="number" th:field="*{number}">
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <input class="form-control rounded-0" id="content" name="content" th:field="*{content}">
+            </div>
+            <div class="form-group">
+                <label for="chapter">Chapter</label>
+                <input class="form-control rounded-0" id="chapter" name="chapter" th:field="*{chapter}">
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Create</button>
+        </form>
+    </div>
+</div>
+
+<div th:replace="master :: footer"></div>
+</body>
+</html>

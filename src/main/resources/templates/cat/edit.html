@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org/">
+<head th:replace="master :: head"></head>
+<body>
+
+<div class="container my-5">
+    <div class="col-md-6 offset-md-3">
+
+        <h1 class="text-info text-center mb-3">Edit Category</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control rounded-0" id="name" name="name" th:value="${cat.name}">
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Update</button>
+        </form>
+    </div>
+</div>
+
+<div th:replace="master :: footer"></div>
+</body>
+</html>

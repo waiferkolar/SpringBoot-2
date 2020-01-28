@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org/">
+<head th:replace="master :: head"></head>
+<body>
+
+
+<div class="container my-5">
+    <div class="row no-gutters justify-content-between">
+        <h1 class="text-center text-info mb-3">All Pages</h1>
+        <div></div>
+    </div>
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr class="text-warning">
+            <th scope="col">Id</th>
+            <th scope="col">Number</th>
+            <th scope="col">Content</th>
+            <th scope="col">Chapter</th>
+            <th scope="col">Action</th>
+            <th scope="col">Book</th>
+            <th scope="col">Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="page : ${pages}">
+            <td th:text="${page.id}"></td>
+            <td th:text="${page.number}"></td>
+            <td th:text="${page.content}"></td>
+            <td th:text="${page.chapter}"></td>
+            <td th:text="${page.book.title}"></td>
+            <td th:text="${page.book.author}"></td>
+            <td>
+                <a th:href="@{'/cat/edit/'+${page.id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                <a th:href="@{'/cat/delete/'+${page.id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div th:replace="master :: footer"></div>
+</body>
+</html>

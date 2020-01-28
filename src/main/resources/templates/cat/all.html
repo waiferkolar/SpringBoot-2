@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org/">
+<head th:replace="master :: head"></head>
+<body>
+
+
+<div class="container my-5">
+    <div class="row no-gutters justify-content-between">
+        <h1 class="float-left">
+            <a href="/cat/create" class="btn btn-primary btn-sm">Create <i class="fa fa-plus"></i></a>
+        </h1>
+        <h1 class="text-center text-info mb-3">All Categories</h1>
+        <div></div>
+    </div>
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr class="text-warning">
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cat : ${categories}">
+            <td th:text="${cat.id}"></td>
+            <td th:text="${cat.name}"></td>
+            <td>
+                <a th:href="@{'/cat/edit/'+${cat.id}}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                <a th:href="@{'/cat/delete/'+${cat.id}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div th:replace="master :: footer"></div>
+</body>
+</html>
